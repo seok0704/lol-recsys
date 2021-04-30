@@ -59,4 +59,5 @@ The major tools and libraries used are as follows:
 * **Beautiful Soup**: Webscraping for Data Collection
 * **RIOT API**: Querying the live data
 * **Django**: Used as the web framework
+* **Bootstrap**: CSS framework for developing the webpage
 * **Numpy**: Used for matrix storing and calculation
