@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="bg">
+    <div class="container form-box">
+        <div class="user_search" id='user'>
+            <form action="{%url 'user:user_rec' %}" method="POST">
+                <h1>Find New Champions Based on Your Profile</h1>
+                {% csrf_token %}
+                <div>
+                        {{userform}}
+                        <input class="btn btn-info submit" type="submit" value="Submit">    
+                </div>
+            </form>    
+        </div>
+
+        <div class="item_search" id='item'>
+            <form action="{%url 'item:item_rec' %}" method="POST">
+                <h1>Find New Champions Based on Your Champion</h1>
+                {% csrf_token %}
+                <div>
+                        {{itemform}}
+                        <input class="btn btn-info submit" type="submit" value="Submit">    
+                </div>
+            </form>    
+        </div>
+
+      
+        <div class="container radio-box">
+            <input type="radio" name="recommender_type" onclick="search_bar()" id="summonerCheck" checked="checked" >
+            <label for="summonerCheck">Summoner</label>
+
+            <input type="radio" name="recommender_type" onclick="search_bar()"id="championCheck">
+            <label for="championCheck">Champion</label>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

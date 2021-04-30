@@ -1,0 +1,53 @@
+{% extends 'recommend_base.html' %}
+{% load static %}
+
+{% block recommend_content %}
+
+<div class="user_profile">
+    <div class="profile_icon">
+        <img src="{{profile_icon}}" alt="" class="profile_icon_image">
+    </div>
+    <div class="summoner_name">
+        {{username}}
+    </div>
+    <div class="summoner_lvl">
+        Lv. {{summoner_level}}
+    </div>
+
+    <div class="tier">
+        <img src="{% static '/images/tier/' %}Emblem_{{tier}}.png" class="tier_icon">
+        <span>
+            <h2>{{tier}}</h2>
+        </span>
+    </div>
+</div>
+
+<div class='container recommendation'>
+
+    {% for chunks in champ_list_chunks %}
+
+    <div class="recommend_list">
+        <div class="row">
+            {% for rank,champ_name,champ_img in chunks %}
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{champ_img}}" alt="" class="img-responsive champ_img" width="100%">
+
+                    <div class="container card_text">
+                        <div class="recommend_rank top-left">{{rank}}</div>
+
+                        <form action={% url 'item:item_rec' %} method="POST">
+                            {% csrf_token %}
+                            <input class="champ_button" type="submit" name="champion" value="{{champ_name}}">
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

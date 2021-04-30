@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>League of Legends Summoner Data</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+
+    <script>
+        function search_bar(){
+            if(document.getElementById('summonerCheck').checked){
+            document.getElementById('user').style.display='block';
+            document.getElementById('item').style.display='none';
+            }
+            else{
+            document.getElementById('user').style.display='none';
+            document.getElementById('item').style.display='block';
+            }
+            return;
+        }
+    </script>
+    
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

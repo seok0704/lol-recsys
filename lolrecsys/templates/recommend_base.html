@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="background">
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand brand-text" href="{% url 'index' %}">HOME</a>
+        <div class="radio-box ml-auto">
+            <input type="radio" name="recommender_type" onclick="search_bar()" id="summonerCheck" checked="checked" >
+            <label for="summonerCheck">Summoner</label>
+
+            <input type="radio" name="recommender_type" onclick="search_bar()"id="championCheck">
+            <label for="championCheck">Champion</label>
+        </div>
+
+        <div id='user'>
+            <form class="form-inline nav-search" action={%url "user:user_rec" %} method="POST">
+                {% csrf_token %}
+                {{userform}}        
+                <input class="btn btn-info submit" type="submit" value="Submit">    
+            </form>
+        </div>
+
+        <div class="item_search" id='item'>
+            <form action="{%url 'item:item_rec' %}" method="POST">
+                {% csrf_token %}
+                <div>
+                        {{itemform}}
+                        <input class="btn btn-info submit" type="submit" value="Submit">    
+                </div>
+            </form>    
+        </div>
+    </nav>
+      
+
+    {% block recommend_content %}
+    {% endblock recommend_content %}
+    
+</div>
+
+
+
+{% endblock %}

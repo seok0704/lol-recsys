@@ -1,0 +1,40 @@
+{% extends 'recommend_base.html' %}
+{% load static %}
+
+{% block recommend_content %}
+
+<div class="main_champion">
+    <img src="{{user_choice_champ_icon}}" class="champ_img" alt="" width="100%">
+    <div class="summoner_name">
+        <h4 class="card_champ"><b>{{user_choice_champ}}</b></h4>
+    </div>
+</div>
+
+<div class='container recommendation'>
+
+    {% for chunks in champ_list_chunks %}
+
+    <div class="recommend_list">
+        <div class="row">
+            {% for rank,champ_name,champ_img in chunks %}
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{champ_img}}" alt="" class="img-responsive champ_img" width="100%">
+
+                    <div class="container card_text">
+                        <div class="recommend_rank top-left">{{rank}}</div>
+
+                        <form action={% url 'item:item_rec' %} method="POST">
+                            {% csrf_token %}
+                            <input class="champ_button" type="submit" name="champion" value="{{champ_name}}">
+                        </form>
+                    </div>
+
+                </div>
+
+            </div> {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
