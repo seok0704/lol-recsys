@@ -43,7 +43,7 @@ In recommender system, the common evaluation metrics are R@K, P@K and RMSE. Even
 |**Item - Cosine**| **0.0888415**  | **0.0561146**   |**0.324303**   |
 | PMF             | 0.0896907       |0.0390828        | 0.239742      |
 
-Our final model uses the item-item KNN using cosine similarity as this showed the best performance in all metrics, and the recommendation it gave made perfect sense. Additionally, the recommendation computation time is exteremely fast since the item-item rating matrix is constructed between champions whereas for user-user, the similarity matrix is constructed throughout different users, making the predictions computationally expensive.
+Our final model uses the item-item KNN using cosine similarity as this showed the best performance in all metrics, and the recommendation it gave made perfect sense. The recommendation computation time is exteremely fast since the item-item rating matrix is constructed between champions whereas for user-user, the similarity matrix is constructed throughout different users, making the predictions computationally expensive.
 
 ### Recommendation Pipeline
 In order to have better control over the recommendations, recommendation pipeline is built on our own. When the user searches its username, the pipeline gets user data from RIOT API (Using RiotWatcher Library) and constructs a user vector which then uses the item-item similarity matrix to receive the top 100 champion recommendations. If the user selects a champion, the tool recommends the top 100 champions based on the item-item matrix stored in the recommender system. The code can be found in the Util folder for both user recommendation and champion recommendation.
