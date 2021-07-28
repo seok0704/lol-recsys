@@ -3,6 +3,8 @@
 
 Champ2Play is a League of legends recommender system  built using Python and recommender system algorithm for the game of League of Legends. League of legend is a multiplayer online game that competes in two teams made of five players each. Each player selects a champion (or game character) that matches its role (Every player is given a role), and play that champion throughout the game. The problem with league of legends right now is that it is very hard for new users to join due to level of complexity and the diversity in champions. There are more than 155 champions in the game, making the new users hard to find their character that matches their playstyle.
 
+For static version of this app hosted on heroku.com, [I'm an inline-style link with title](https://champ2play.herokuapp.com/")
+
 The recommender system can provide recommendations for each user based on their match history.
 
 ![image](https://user-images.githubusercontent.com/17075250/116634343-c0e63e00-a929-11eb-8468-c11f7e43e6ec.png)
