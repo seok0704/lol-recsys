@@ -63,3 +63,8 @@ The major tools and libraries used are as follows:
 * **Django**: Used as the web framework
 * **Bootstrap**: CSS framework for developing the webpage
 * **Numpy**: Used for matrix storing and calculation
+
+### Next Steps
+1. Schedule web scraping weekly and update the recommender system
+2. Script to handle new champions
+
